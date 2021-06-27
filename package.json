@@ -29,6 +29,8 @@
     "typescript": "^4.3.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
     "@graphql-codegen/cli": "^1.21.5",
     "@graphql-codegen/import-types-preset": "^1.18.4",
     "@graphql-codegen/introspection": "1.18.2",
@@ -39,10 +41,12 @@
     "@graphql-codegen/typescript-operations": "1.18.2",
     "@graphql-codegen/typescript-react-apollo": "2.2.7",
     "@graphql-codegen/typescript-resolvers": "^1.19.4",
+    "babel-loader": "^8.2.2",
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.1",
     "graphql-let": "^0.18.4",
     "graphql-tag": "^2.12.5",
+    "webpack": "^5.40.0",
     "yaml-loader": "^0.6.0"
   }
 }

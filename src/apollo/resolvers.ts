@@ -1,4 +1,4 @@
-import { QueryResolvers, MutationResolvers } from './type-defs.graphqls'
+import { QueryResolvers, MutationResolvers } from 'graphql-let/__generated__/__types__'
 import { ResolverContext } from './apollo'
 
 
@@ -10,7 +10,7 @@ const Query: Required<QueryResolvers<ResolverContext>> = {
 
 const Mutation: Required<MutationResolvers<ResolverContext>> = {
     addContact(_parent, _args, _context, _info) {
-      return 2;
+      return null;
     },
 }
 
