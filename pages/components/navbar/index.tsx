@@ -12,86 +12,90 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useColorMode,
   useBreakpointValue,
   useDisclosure,
-  Image
 } from '@chakra-ui/react';
-
-
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-  MoonIcon,
 } from '@chakra-ui/icons';
 
-export default function Navbar() {
+export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
-  const { toggleColorMode } = useColorMode()
 
   return (
     <Box>
-    <Flex
-      bg={useColorModeValue('white', 'gray.800')}
-      color={useColorModeValue('gray.600', 'white')}
-      minH={'60px'}
-      py={{ base: 2 }}
-      px={{ base: 4 }}
-      borderBottom={1}
-      borderStyle={'solid'}
-      borderColor={useColorModeValue('gray.200', 'gray.900')}
-      align={'center'}>
       <Flex
-        flex={{ base: 1, md: 'auto' }}
-        ml={{ base: -2 }}
-        display={{ base: 'flex', md: 'none' }}>
-        <IconButton
-          onClick={onToggle}
-          icon={
-            isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-          }
-          variant={'ghost'}
-          aria-label={'Toggle Navigation'}
-        />
-      </Flex>
-      <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-      <a href="./">
-                <Image boxSize="100px" href="#" src="https://cdn.discordapp.com/attachments/855530446078607390/856017501431005204/White-font.png?width=62&height=62" alt="Bloom-cooks logo" />
-              </a>
-
-
-      </Flex>
-
-      <Stack
-        flex={{ base: 1, md: 0 }}
-        justify={'flex-end'}
-        direction={'row'}
-        spacing={6}>
-                  <Button
-            padding={2}
-            as={'a'}
-            fontSize={'sm'}
-            bg="none"
-            onClick={toggleColorMode}>
-            <MoonIcon></MoonIcon>
-          </Button>
-                  <Flex display={{ base: 'none', md: 'flex' }} ml={10}  alignItems="center">
-          <DesktopNav />
+        bg={useColorModeValue('white', 'gray.800')}
+        color={useColorModeValue('gray.600', 'white')}
+        minH={'60px'}
+        py={{ base: 2 }}
+        px={{ base: 4 }}
+        borderBottom={1}
+        borderStyle={'solid'}
+        borderColor={useColorModeValue('gray.200', 'gray.900')}
+        align={'center'}>
+        <Flex
+          flex={{ base: 1, md: 'auto' }}
+          ml={{ base: -2 }}
+          display={{ base: 'flex', md: 'none' }}>
+          <IconButton
+            onClick={onToggle}
+            icon={
+              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+            }
+            variant={'ghost'}
+            aria-label={'Toggle Navigation'}
+          />
+        </Flex>
+        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+            <DesktopNav />
+          </Flex>
         </Flex>
 
-      </Stack>
-    </Flex>
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={'flex-end'}
+          direction={'row'}
+          spacing={6}>
+          <Button
+            as={'a'}
+            fontSize={'sm'}
+            fontWeight={400}
+            variant={'link'}
+            href={'#'}>
+            Sign In
+          </Button>
+          <Button
+            display={{ base: 'none', md: 'inline-flex' }}
+            fontSize={'sm'}
+            fontWeight={600}
+            color={'white'}
+            bg={'green.400'}
+            href={'#'}
+            _hover={{
+              bg: 'grey.100',
+            }}>
+            Sign Up
+          </Button>
+        </Stack>
+      </Flex>
 
-    <Collapse in={isOpen} animateOpacity>
-      <MobileNav />
-    </Collapse>
-  </Box>
+      <Collapse in={isOpen} animateOpacity>
+        <MobileNav />
+      </Collapse>
+    </Box>
   );
 }
 
 const DesktopNav = () => {
+  const linkColor = useColorModeValue('gray.600', 'gray.200');
+  const linkHoverColor = useColorModeValue('gray.800', 'white');
+  const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+
   return (
     <Stack direction={'row'} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
@@ -103,10 +107,10 @@ const DesktopNav = () => {
                 href={navItem.href ?? '#'}
                 fontSize={'sm'}
                 fontWeight={500}
-                color={useColorModeValue('gray.600', 'gray.200')}
+                color={linkColor}
                 _hover={{
                   textDecoration: 'none',
-                  color: useColorModeValue('gray.800', 'white'),
+                  color: linkHoverColor,
                 }}>
                 {navItem.label}
               </Link>
@@ -116,7 +120,7 @@ const DesktopNav = () => {
               <PopoverContent
                 border={0}
                 boxShadow={'xl'}
-                bg={useColorModeValue('white', 'gray.800')}
+                bg={popoverContentBgColor}
                 p={4}
                 rounded={'xl'}
                 minW={'sm'}>
@@ -142,12 +146,12 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       display={'block'}
       p={2}
       rounded={'md'}
-      _hover={{ bg: useColorModeValue('purple.50', 'gray.900') }}>
+      _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
       <Stack direction={'row'} align={'center'}>
         <Box>
           <Text
             transition={'all .3s ease'}
-            _groupHover={{ color: 'purple.400' }}
+            _groupHover={{ color: 'pink.400' }}
             fontWeight={500}>
             {label}
           </Text>
@@ -161,7 +165,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           justify={'flex-end'}
           align={'center'}
           flex={1}>
-          <Icon color={'purple.400'} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
@@ -239,8 +243,5 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: 'Dashboard',
-  },
-  
+
 ];
