@@ -76,11 +76,11 @@ export default function SplitScreen() {
 
     <Center mt="40px">
       <svg width="358" height="4" viewBox="0 0 358 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line y1="2" x2="358" y2="2" stroke="url(#paint0_linear)" stroke-width="4"/>
+      <line y1="2" x2="358" y2="2" stroke="url(#paint0_linear)" strokeWidth="4"/>
       <defs>
       <linearGradient id="paint0_linear" x1="-54.5" y1="4" x2="368" y2="4" gradientUnits="userSpaceOnUse">
-      <stop stop-color="white" stop-opacity="0"/>
-      <stop offset="0.526042" stop-color="#48FF1B"/>
+      <stop stopColor="white" stopOpacity="0"/>
+      <stop offset="0.526042" stopColor="#48FF1B"/>
       </linearGradient>
       </defs>
       </svg>

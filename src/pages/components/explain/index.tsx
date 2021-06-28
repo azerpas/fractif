@@ -31,7 +31,7 @@ import {
  getexplain == true ? 
 
  <>
- <Center mt="20px">
+ <Center mt="20px" >
         <Flex flexDirection="row">
             <Center mr="25px">
                 <Text textDecoration="underline" textDecorationColor="#81FF62" fontWeight="medium" onClick={() => setexplain(true)}>Buying</Text> 
@@ -42,7 +42,9 @@ import {
        </Flex>
        </Center>
 
-       <SimpleGrid columns={{ base: 1, sm: 1, lg: 3 }} spacing={{ base: 40, sm: 40, lg: 10 }} mt="40px">
+      <Center>
+      <Box w="60%" alignItems="center" justifyContent="center">
+       <SimpleGrid columns={{ base: 1, sm: 1, lg: 3 }} spacing={{ base: 20, sm: 40, lg: 10 }} mt="40px" >
 
   <Box bg="" height="80px" >
 
@@ -85,6 +87,8 @@ some sneakers!</Text>
     />
   </Box>
 </SimpleGrid>
+</Box>
+</Center>
 </>
 
 :

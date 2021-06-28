@@ -36,23 +36,26 @@ export default function Home() {
           </Flex>
       </Flex>
 
-      <Stack ml="25px" mt="15px"> 
-        <Heading color="green.400">Expand your wealth</Heading>
-        <Text w="60%">
-        Build wealth by investing in hundreds of cars and earn big in the long term.
-        We allow you to invest in cars without risking to buy a car at 100% and allowing you to buy shares of cars in order to resell them some time later
-        </Text>
+<Center>
+      <Stack >
+        <Stack  mt="15px"> 
+          <Heading color="green.400">Expand your wealth</Heading>
+          <Text w="60%">
+          Build wealth by investing in hundreds of cars and earn big in the long term.
+          We allow you to invest in cars without risking to buy a car at 100% and allowing you to buy shares of cars in order to resell them some time later
+          </Text>
+        </Stack>
+
+
+        <Stack mr="25px"margin="auto"> 
+          <Heading color="green.400" >Why Investing in Cars ?</Heading>
+          <Text w="60%"  >
+          Build wealth by investing in hundreds of cars and earn big in the long term.
+          We allow you to invest in cars without risking to buy a car at 100% and allowing you to buy shares of cars in order to resell them some time later
+          </Text>
+        </Stack>
       </Stack>
-
-
-      <Stack mr="25px" mt="15px"> 
-        <Heading color="green.400" textAlign="right">Why Investing in Cars ?</Heading>
-        <Text w="60%" textAlign="right" >
-        Build wealth by investing in hundreds of cars and earn big in the long term.
-        We allow you to invest in cars without risking to buy a car at 100% and allowing you to buy shares of cars in order to resell them some time later
-        </Text>
-      </Stack>
-
+      </Center>
       <Newsletter/>
         
     </>
