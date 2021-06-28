@@ -20,7 +20,7 @@ export default function SplitScreen() {
  
     <Center>
         <Image
-          alt={'Bloom Logo'}
+          alt={'guide-2'}
           objectFit={'cover'}
           boxSize="75%"
           src={

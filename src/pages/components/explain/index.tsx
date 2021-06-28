@@ -52,7 +52,7 @@ import {
         <Text  ml="15px" mt={{ base: '0.6rem', sm: '', lg: "0.8rem" }} w={{ base: '90%', sm: '', lg: "" }} fontSize={{ base: '0.6rem', sm: '', lg: "0.8rem" }} fontWeight="medium" color="gray.600">Browse hundreds of 100% safe & legit listings of 
                 the best bots, all available for instant download.</Text>
             <Image
-        alt={'Bloom Logo'}
+        alt={'guide-1'}
         objectFit={'cover'}
         src={
         'https://media.discordapp.net/attachments/707421140179746946/858521545273376768/PXgdd5t.png'
@@ -79,7 +79,7 @@ it.</Text>
 soon as you purchase and get ready to cop 
 some sneakers!</Text>
             <Image
-        alt={'Bloom Logo'}
+        alt={'guide-2'}
         objectFit={'cover'}
         src={
         'https://media.discordapp.net/attachments/707421140179746946/858521541934317568/G4fe4a0.png'
