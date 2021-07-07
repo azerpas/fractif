@@ -10,6 +10,10 @@ const typeDefs = mergeTypeDefs(loadedFiles)
 
 console.log(`Loaded files:`);
 console.log(loadedFiles);
+console.log(`Graphql-let config schema`);
+console.log(graphQLLetConfig.schema);
+console.log(`Path ${process.cwd()}`);
+console.log(`Join: ${join(process.cwd(), graphQLLetConfig.schema)}`)
 
 export const schema = makeExecutableSchema({
   typeDefs,
