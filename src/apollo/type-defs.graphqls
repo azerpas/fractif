@@ -1,0 +1,7 @@
+type Query {
+    contact: Contact!
+}
+
+type Mutation {
+    addContact(firstName: String!, lastName: String!, email: String!, listId: String!): Member!
+}

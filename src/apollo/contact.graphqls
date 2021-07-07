@@ -1,0 +1,6 @@
+type Contact {
+    firstName: String!
+    lastName: String!
+    email: String!
+    listId: String!
+}
