@@ -13,16 +13,19 @@ import GreenShadow from "../Shadow/green"
 export default function SplitScreen() {
   return (
     <>
-
-    <Center mt="30px">
-        <Heading textDecor="highlight">Car investment <span style={{"textDecoration" : "underline","WebkitTextDecorationLine":"lineThrough","textDecorationThickness": "20px","marginBottom": "30px","textDecorationColor":"#81FF62","marginTop":"10px"}}> reinvented </span></Heading>
+    {/* //TODO: use a Container */}
+    <Center mt="1rem" mb={{base: "-3rem", md: "-5rem"}}>
+        <Heading textDecor="highlight" fontSize={{base: "3xl", sm: "5xl"}} textAlign="center">
+            Car investment&nbsp;
+            <span style={{boxShadow: "rgb(129, 255, 98) 0px -15px 0px inset !important"}}>reinvented </span>
+        </Heading>
     </Center>
  
     <Center>
         <Image
           alt={'guide-2'}
           objectFit={'cover'}
-          boxSize="75%"
+          boxSize={{base: "95%", md: "85%"}}
           src={
             'https://media.discordapp.net/attachments/707421140179746946/858394956635570206/porsche-model.png?width=1805&height=1016'
           }
