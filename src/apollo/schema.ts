@@ -8,6 +8,9 @@ import resolvers from './resolvers'
 const loadedFiles = loadFilesSync(join(process.cwd(), graphQLLetConfig.schema))
 const typeDefs = mergeTypeDefs(loadedFiles)
 
+console.log(`Loaded files:`);
+console.log(loadedFiles);
+
 export const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
