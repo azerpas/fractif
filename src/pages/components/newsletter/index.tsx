@@ -8,9 +8,29 @@ import {
     Icon,
     useColorModeValue,
     createIcon,
-  } from '@chakra-ui/react';
-  
-  export default function Newsletter() {
+} from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { useForm } from "react-hook-form";  
+import { Contact } from '../../../types/Contact';
+
+type ContactFields = {
+    response: string
+} & Contact
+
+export default function Newsletter({recaptcha}: {recaptcha: string}) {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const signUp = async (data: ContactFields) => {
+        console.log('sign')
+        const r = await fetch("/api/contact", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {"content-type": "application/json"}
+        });
+    }
+    useEffect(() => {
+        console.log(errors);
+    }, [errors]);
+    const onSubmit = data => signUp(data);
     return (
       <Flex
         minH={'100vh'}
@@ -37,29 +57,73 @@ import {
               Subscribe to our newsletter & stay up to date!
             </Text>
           </Stack>
-          <Stack spacing={4} direction={{ base: 'column', md: 'row' }} w={'full'}>
-            <Input
-              type={'text'}
-              placeholder={'john@doe.net'}
-              color={useColorModeValue('gray.800', 'gray.200')}
-              bg={useColorModeValue('gray.100', 'gray.600')}
-              rounded={'full'}
-              border={0}
-              _focus={{
-                bg: useColorModeValue('gray.200', 'gray.800'),
-                outline: 'none',
-              }}
-            />
-            <Button
-              bg={'green.400'}
-              rounded={'full'}
-              color={'white'}
-              flex={'1 0 auto'}
-              _hover={{ bg: 'green.500' }}
-              _focus={{ bg: 'green.500' }}>
-              Subscribe
-            </Button>
-          </Stack>
+          <form onSubmit={handleSubmit(onSubmit)}>
+                <Stack spacing={4} direction={{ base: 'column', sm: 'column', xl: 'row' }} w={'full'}>
+                    <Input
+                    type={'email'}
+                    placeholder={'john@doe.net'}
+                    color={useColorModeValue('gray.800', 'gray.200')}
+                    bg={useColorModeValue('gray.100', 'gray.600')}
+                    rounded={'full'}
+                    border={0}
+                    _focus={{
+                        bg: useColorModeValue('gray.200', 'gray.800'),
+                        outline: 'none',
+                    }}
+                    {...register("email", {required: true, pattern: /[^@\s]+@[^@\s]+\.[^@\s]+/im})}
+                    />
+                    <Input
+                    type={'text'}
+                    placeholder={'Firstname'}
+                    color={useColorModeValue('gray.800', 'gray.200')}
+                    bg={useColorModeValue('gray.100', 'gray.600')}
+                    rounded={'full'}
+                    border={0}
+                    _focus={{
+                        bg: useColorModeValue('gray.200', 'gray.800'),
+                        outline: 'none',
+                    }}
+                    {...register("firstName", {required: true})}
+                    />
+                    <Input
+                    type={'text'}
+                    placeholder={'Lastname'}
+                    color={useColorModeValue('gray.800', 'gray.200')}
+                    bg={useColorModeValue('gray.100', 'gray.600')}
+                    rounded={'full'}
+                    border={0}
+                    _focus={{
+                        bg: useColorModeValue('gray.200', 'gray.800'),
+                        outline: 'none',
+                    }}
+                    {...register("lastName", {required: true})}
+                    />
+                    <Input
+                    type={'hidden'}
+                    value={recaptcha}
+                    {...register("response", {required: true})}
+                    />
+                    <Input
+                    type={'hidden'}
+                    value={process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID}
+                    {...register("listId", {required: true})}
+                    />
+                    {errors.email ? errors.email.message : null}
+                    {errors.lastName ? errors.lastName.message : null} {errors.firstName ? errors.firstName.message : null}
+                    {errors.response ? errors.response.message : null} {errors.listId ? errors.listId.type : null}
+                    <Button
+                    bg={'green.400'}
+                    rounded={'full'}
+                    color={'white'}
+                    flex={'1 0 auto'}
+                    _hover={{ bg: 'green.500' }}
+                    _focus={{ bg: 'green.500' }}
+                    type="submit"
+                    >
+                    Subscribe
+                    </Button>
+                </Stack>
+            </form>
         </Stack>
       </Flex>
     );
