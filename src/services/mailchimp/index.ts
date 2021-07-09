@@ -18,7 +18,7 @@ type UserProps = {
     interests: {[key: string]: any};
 }
 
-export const addContact = async (props: ContactProps) => {
+export const addContact = async (props: ContactProps): Promise<string> => {
     try{
         const rep = await mailchimp.lists.addListMember(props.listId, {
             email_address: props.email,
@@ -29,6 +29,7 @@ export const addContact = async (props: ContactProps) => {
             status: "subscribed"
         });
         if(rep.id) return rep.id;
+        else throw new Error(`Error while adding email: ${rep}`);
     }catch(e){
         console.error(e);
         if(e.status === 400){
