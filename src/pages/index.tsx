@@ -29,7 +29,8 @@ import { useState } from 'react'
 
 export default function Home() {
   const [recaptcha, setRecaptcha] = useState<string|undefined>();
-  if(process.env.NEXT_PUBLIC_SITE_KEY) throw new Error("Site Key undefined");
+
+  if(!process.env.NEXT_PUBLIC_SITE_KEY) throw new Error("Site Key undefined");
   const handleLoaded = (_: any) => {
     window.grecaptcha.ready((_: any) => {
       window.grecaptcha

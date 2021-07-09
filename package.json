@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn codegen && next dev",
+    "dev": "next dev",
     "build": "yarn codegen && next build",
     "start": "next start",
     "lint": "next lint",
