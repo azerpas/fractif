@@ -30,7 +30,7 @@ export default function Newsletter({recaptcha}: {recaptcha: string}) {
     useEffect(() => {
         console.log(errors);
     }, [errors]);
-    const onSubmit = data => signUp(data);
+    const onSubmit = data => console.log(data);
     return (
       <Flex
         minH={'100vh'}
