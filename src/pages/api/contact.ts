@@ -10,7 +10,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if(resultAsJson.success){
             if(resultAsJson.score > 0.3){
                 const contact: Contact = req.body;
-                const id = await addContact(contact);
+                //const id = await addContact(contact);
+                const id = 4;
+                console.log(contact);
                 res.status(200).json({ id });
             }else res.status(403).send("SCORE TOO LOW");
         }else res.status(401).send("CAPTCHA ERROR 1");
