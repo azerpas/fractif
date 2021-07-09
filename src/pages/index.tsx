@@ -23,11 +23,26 @@ import Pourcentage from './components/pourcentage'
 import CarStat911 from './components/CarStat/911'
 import CarClasseG from './components/CarStat/ClasseG'
 import CarPhantom from './components/CarStat/Phantom'
-
-
-
+import { useEffect } from 'react'
+import { getScript } from '../utils/google/recaptcha'
+import { useState } from 'react'
 
 export default function Home() {
+  const [recaptcha, setRecaptcha] = useState<string|undefined>();
+  if(process.env.NEXT_PUBLIC_SITE_KEY) throw new Error("Site Key undefined");
+  const handleLoaded = (_: any) => {
+    window.grecaptcha.ready((_: any) => {
+      window.grecaptcha
+        .execute(process.env.NEXT_PUBLIC_SITE_KEY, { action: "login" })
+        .then((token: string) => {
+            setRecaptcha(token)
+        });
+    })
+  }
+  // Add recaptcha script
+  useEffect(()=>{
+      document.body.appendChild(getScript(handleLoaded))
+  }, []);
   return (
     <>
       <Navbar/>
