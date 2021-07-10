@@ -107,7 +107,7 @@ export default function Home() {
                
          flex={{ base: 1, md: 0 }}
           justify='flex-end'
-          FlexDirection="column"
+          flexdirection="column"
           spacing={6}> 
           <Heading color="green.400" textAlign="right"  mt="50px">Why Investing in Cars ?</Heading>
   
@@ -115,7 +115,7 @@ export default function Home() {
         <Flex mr="25px" alignContent="right"          
          flex={{ base: 1, md: 0 }}
           justify='flex-end'
-          FlexDirection="column"
+          flexdirection="column"
           spacing={6}> 
           <Text w={{ base: '', sm: '', lg: '60%' }} textAlign="right">
           Build wealth by investing in hundreds of cars and earn big in the long term.

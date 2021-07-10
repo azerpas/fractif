@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 console.log(contact);
                 res.status(200).json({ id });
             }else res.status(403).send("SCORE TOO LOW");
-        }else res.status(401).send("CAPTCHA ERROR 1");
+        }else res.status(401).send(`${resultAsJson['error-codes'][0]}`);
     }else{
         res.status(401).send("METHOD NOT FOUND");
     }
