@@ -12,8 +12,11 @@ import {
 	FormHelperText,
 	FormLabel,
 	FormErrorMessage,
+	Spinner
 } from '@chakra-ui/react';
+import {CheckCircleIcon} from '@chakra-ui/icons';
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import { useState } from 'react';
 import { useForm } from "react-hook-form";  
 import { Contact } from '../../../types/Contact';
 
@@ -22,7 +25,8 @@ type ContactFields = {
 } & Contact
 
 export default function Newsletter({recaptcha, setRecaptcha}: {recaptcha: string, setRecaptcha: Dispatch<SetStateAction<string>>}) {
-    const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm();
+    const { register, handleSubmit, watch, formState: { errors, isSubmitting }, setValue } = useForm();
+	const [id, setId] = useState<undefined|string>(undefined);
     const signUp = async (data: ContactFields) => {
 		const r = await fetch("/api/contact", {
             method: "POST",
@@ -43,93 +47,123 @@ export default function Newsletter({recaptcha, setRecaptcha}: {recaptcha: string
 				alert("Captcha expired, please re-submit the form")
 				window.location.reload();
 			}
+		}else{
+			const rJson: {id: string} = await r.json();
+			setId(rJson.id);
 		}
-		const rJson = await r.json();
     }
 	useEffect(()=>{
 		setValue('response', recaptcha)
 	}, [recaptcha, setValue]);
-    const onSubmit = data => signUp(data);
+    const onSubmit = async data => await signUp(data);
+	if(id){
+		return(
+			<Flex
+			minH={'100vh'}
+			align={'center'}
+			justify={'center'}
+			py={12}>
+				<Stack
+				boxShadow={'2xl'}
+				rounded={'xl'}
+				p={10}
+				spacing={8}
+				align={'center'}>
+					<Heading
+					textTransform={'uppercase'}
+					fontSize={'3xl'}>
+					Successfully subscribed
+					</Heading>
+					<Icon as={CheckCircleIcon} width="4rem"/>
+				</Stack>
+			</Flex>
+		);
+	}
     return (
 		<Flex
 			minH={'100vh'}
 			align={'center'}
 			justify={'center'}
 			py={12}
-			bg={useColorModeValue('gray.50', 'gray.800')}>
+			bg="gray.50">
 			<Stack
 			boxShadow={'2xl'}
-			bg={useColorModeValue('white', 'gray.700')}
 			rounded={'xl'}
 			p={10}
 			spacing={8}
-			align={'center'}>
+			align={'center'}
+			bg="white"
+			>
 				<Icon as={NotificationIcon} w={24} h={24} />
 				<Stack align={'center'} spacing={2}>
 					<Heading
 					textTransform={'uppercase'}
-					fontSize={'3xl'}
-					color={useColorModeValue('gray.800', 'gray.200')}>
+					fontSize={'3xl'}>
 					Subscribe
 					</Heading>
 					<Text fontSize={'lg'} color={'gray.500'}>
 					Subscribe to our newsletter & stay up to date!
 					</Text>
 				</Stack>
-				<form onSubmit={handleSubmit(onSubmit)}>
-					<Stack spacing={4} direction={{ base: 'column', sm: 'column', xl: 'row' }} w={'full'}>
-						<FormControl id="email">
-							<FormLabel>Email address</FormLabel>
-							<Input type="email" {...register("email", {required: true, pattern: /[^@\s]+@[^@\s]+\.[^@\s]+/im})} />
-							<FormErrorMessage>
-								{errors.email?.type === "pattern" && "Email format invalid"}
-                                {errors.email?.type === "required" && "Enter your email"}
-                                {!["pattern", "required"].includes(errors.email?.type) && errors.email?.message}
-							</FormErrorMessage>
-							<FormHelperText>We will never share your email.</FormHelperText>
-						</FormControl>
-						<FormControl id="firstName">
-							<FormLabel>First name</FormLabel>
-							<Input type="text" {...register("firstName", {required: true})} />
-							<FormErrorMessage>
-                                {errors.firstName?.type === "required" && "Enter your first name"}
-                                {!["pattern", "required"].includes(errors.firstName?.type) && errors.firstName?.message}
-							</FormErrorMessage>
-						</FormControl>
-						<FormControl id="lastName">
-							<FormLabel>Last name</FormLabel>
-							<Input type="text" {...register("lastName", {required: true})} />
-							<FormErrorMessage>
-                                {errors.lastName?.type === "required" && "Enter your last name"}
-                                {!["pattern", "required"].includes(errors.lastName?.type) && errors.lastName?.message}
-							</FormErrorMessage>
-						</FormControl>
-						<Input
-						type={'hidden'}
-						value={recaptcha}
-						{...register("response")}
-						name="response"
-						/>
-						<Input
-						type={'hidden'}
-						value={process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID}
-						{...register("listId", {required: true})}
-						defaultValue={process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID}
-						name="listId"
-						/>
-						{errors.response ? errors.response.message : null} {errors.listId ? errors.listId.type : null}
-						<Input
-						bg={'green.400'}
-						rounded={'full'}
-						color={'white'}
-						flex={'1 0 auto'}
-						_hover={{ bg: 'green.500' }}
-						_focus={{ bg: 'green.500' }}
-						type="submit"
-						value="Subscribe"
-						/>
-					</Stack>
-				</form>
+				{
+					isSubmitting ? 
+					<Spinner size="xl"/>
+					:
+					<form onSubmit={handleSubmit(onSubmit)}>
+						<Stack spacing={4} direction={{ base: 'column', sm: 'column', xl: 'row' }} w={'full'}>
+							<FormControl id="email">
+								<FormLabel>Email address</FormLabel>
+								<Input type="email" {...register("email", {required: true, pattern: /[^@\s]+@[^@\s]+\.[^@\s]+/im})} />
+								<FormErrorMessage>
+									{errors.email?.type === "pattern" && "Email format invalid"}
+									{errors.email?.type === "required" && "Enter your email"}
+									{!["pattern", "required"].includes(errors.email?.type) && errors.email?.message}
+								</FormErrorMessage>
+								<FormHelperText>We will never share your email.</FormHelperText>
+							</FormControl>
+							<FormControl id="firstName">
+								<FormLabel>First name</FormLabel>
+								<Input type="text" {...register("firstName", {required: true})} />
+								<FormErrorMessage>
+									{errors.firstName?.type === "required" && "Enter your first name"}
+									{!["pattern", "required"].includes(errors.firstName?.type) && errors.firstName?.message}
+								</FormErrorMessage>
+							</FormControl>
+							<FormControl id="lastName">
+								<FormLabel>Last name</FormLabel>
+								<Input type="text" {...register("lastName", {required: true})} />
+								<FormErrorMessage>
+									{errors.lastName?.type === "required" && "Enter your last name"}
+									{!["pattern", "required"].includes(errors.lastName?.type) && errors.lastName?.message}
+								</FormErrorMessage>
+							</FormControl>
+							<Input
+							type={'hidden'}
+							value={recaptcha}
+							{...register("response")}
+							name="response"
+							/>
+							<Input
+							type={'hidden'}
+							value={process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID}
+							{...register("listId", {required: true})}
+							defaultValue={process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID}
+							name="listId"
+							/>
+							{errors.response ? errors.response.message : null} {errors.listId ? errors.listId.type : null}
+							<Input
+							bg={'green.400'}
+							rounded={'full'}
+							color={'white'}
+							flex={'1 0 auto'}
+							_hover={{ bg: 'green.500' }}
+							_focus={{ bg: 'green.500' }}
+							type="submit"
+							value="Subscribe"
+							/>
+						</Stack>
+					</form>
+				}
 			</Stack>
 		</Flex>
     );
