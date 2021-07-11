@@ -34,7 +34,7 @@ export default function Home() {
   const handleLoaded = (_: any) => {
     window.grecaptcha.ready((_: any) => {
       window.grecaptcha
-        .execute(process.env.NEXT_PUBLIC_SITE_KEY, { action: "login" })
+        .execute(process.env.NEXT_PUBLIC_SITE_KEY, { action: "newsletter" })
         .then((token: string) => {
             setRecaptcha(token)
         });
@@ -125,7 +125,7 @@ export default function Home() {
       </Stack>
       </Flex>
       </Center>
-      <Newsletter recaptcha={recaptcha}/>
+      <Newsletter recaptcha={recaptcha} setRecaptcha={setRecaptcha}/>
         
     </>
   )
