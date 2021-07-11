@@ -13,7 +13,7 @@ import {
 	FormLabel,
 	FormErrorMessage,
 } from '@chakra-ui/react';
-import React, { useEffect } from 'react';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import { useForm } from "react-hook-form";  
 import { Contact } from '../../../types/Contact';
 
@@ -21,15 +21,34 @@ type ContactFields = {
     response: string
 } & Contact
 
-export default function Newsletter({recaptcha}: {recaptcha: string}) {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+export default function Newsletter({recaptcha, setRecaptcha}: {recaptcha: string, setRecaptcha: Dispatch<SetStateAction<string>>}) {
+    const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm();
     const signUp = async (data: ContactFields) => {
 		const r = await fetch("/api/contact", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {"content-type": "application/json"}
         });
+		if(r.status !== 200){
+			if(await r.text() === "timeout-or-duplicate"){
+				/* TODO: Regen captcha on timeout
+				window.grecaptcha
+				.execute(process.env.NEXT_PUBLIC_SITE_KEY, { action: "newsletter" })
+				.then((token: string) => {
+					setRecaptcha(token)
+				})
+				.then(()=>{
+					signUp(data);
+				})*/
+				alert("Captcha expired, please re-submit the form")
+				window.location.reload();
+			}
+		}
+		const rJson = await r.json();
     }
+	useEffect(()=>{
+		setValue('response', recaptcha)
+	}, [recaptcha, setValue]);
     const onSubmit = data => signUp(data);
     return (
 		<Flex
@@ -88,16 +107,16 @@ export default function Newsletter({recaptcha}: {recaptcha: string}) {
 						<Input
 						type={'hidden'}
 						value={recaptcha}
-						{...register("response", {required: true})}
+						{...register("response")}
+						name="response"
 						/>
 						<Input
 						type={'hidden'}
 						value={process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID}
 						{...register("listId", {required: true})}
+						defaultValue={process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID}
+						name="listId"
 						/>
-						
-						{errors.email ? errors.email.message : null}
-						{errors.lastName ? errors.lastName.message : null} {errors.firstName ? errors.firstName.message : null}
 						{errors.response ? errors.response.message : null} {errors.listId ? errors.listId.type : null}
 						<Input
 						bg={'green.400'}
