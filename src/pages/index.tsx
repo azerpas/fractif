@@ -23,11 +23,27 @@ import Pourcentage from './components/pourcentage'
 import CarStat911 from './components/CarStat/911'
 import CarClasseG from './components/CarStat/ClasseG'
 import CarPhantom from './components/CarStat/Phantom'
-
-
-
+import { useEffect } from 'react'
+import { getScript } from '../utils/google/recaptcha'
+import { useState } from 'react'
 
 export default function Home() {
+  const [recaptcha, setRecaptcha] = useState<string|undefined>();
+
+  if(!process.env.NEXT_PUBLIC_SITE_KEY) throw new Error("Site Key undefined");
+  const handleLoaded = (_: any) => {
+    window.grecaptcha.ready((_: any) => {
+      window.grecaptcha
+        .execute(process.env.NEXT_PUBLIC_SITE_KEY, { action: "newsletter" })
+        .then((token: string) => {
+            setRecaptcha(token)
+        });
+    })
+  }
+  // Add recaptcha script
+  useEffect(()=>{
+      document.body.appendChild(getScript(handleLoaded))
+  }, []);
   return (
     <>
       <Navbar/>
@@ -91,7 +107,7 @@ export default function Home() {
                
          flex={{ base: 1, md: 0 }}
           justify='flex-end'
-          FlexDirection="column"
+          flexdirection="column"
           spacing={6}> 
           <Heading color="green.400" textAlign="right"  mt="50px">Why Investing in Cars ?</Heading>
   
@@ -99,7 +115,7 @@ export default function Home() {
         <Flex mr="25px" alignContent="right"          
          flex={{ base: 1, md: 0 }}
           justify='flex-end'
-          FlexDirection="column"
+          flexdirection="column"
           spacing={6}> 
           <Text w={{ base: '', sm: '', lg: '60%' }} textAlign="right">
           Build wealth by investing in hundreds of cars and earn big in the long term.
@@ -109,7 +125,7 @@ export default function Home() {
       </Stack>
       </Flex>
       </Center>
-      <Newsletter/>
+      <Newsletter recaptcha={recaptcha} setRecaptcha={setRecaptcha}/>
         
     </>
   )
