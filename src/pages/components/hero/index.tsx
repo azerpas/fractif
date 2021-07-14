@@ -61,7 +61,7 @@ export default function SplitScreen() {
       
     </Center>
 
-    <Center>
+    <Center mt="3rem">
       <Heading textDecor="highlight" fontSize="3xl" mt={3}>Get instant returns</Heading>
     </Center>
     
