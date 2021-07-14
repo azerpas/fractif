@@ -28,7 +28,7 @@ export default function Pourcentage(data) {
       clearInterval(movement_timer);
       movement_timer = setTimeout(() => {
         if(boxRef.current){
-          setDimensions({width: boxRef.current!.offsetWidth, height: boxRef.current!.offsetHeight});
+          setDimensions({width: boxRef.current!.offsetWidth, height: boxRef.current.offsetHeight});
         }
       }, 100);
     });
@@ -37,7 +37,7 @@ export default function Pourcentage(data) {
     <>
     <Box bg={data.colorbox} alignItems="center" ref={boxRef}>
       <Center >
-          <Text fontWeight="bold" color="blackAlpha.500" my="1" textAlign="center">{data.pourcentageCard}</Text>
+          <Text fontWeight="bold" color="blackAlpha.500" fontSize={dimensions.width / 2} my="1" textAlign="center">{data.pourcentageCard}</Text>
       </Center>
     </Box>
     </>
