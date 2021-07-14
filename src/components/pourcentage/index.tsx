@@ -1,9 +1,4 @@
 import {
-  Button,
-  Flex,
-  Heading,
-  Image,
-  SimpleGrid,
   Text,
   Center,
   Box

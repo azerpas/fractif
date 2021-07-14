@@ -9,7 +9,6 @@ import {
   Text,
   Center,
   Box,
-  Divider,
   Container
 } from '@chakra-ui/react';
   
