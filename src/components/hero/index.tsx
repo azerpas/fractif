@@ -6,51 +6,63 @@ import {
   SimpleGrid,
   Text,
   Center,
-  Box
+  Box,
+  Container
 } from '@chakra-ui/react';
 
 import GreenShadow from "../Shadow/green"
 export default function SplitScreen() {
   return (
     <>
-
-    <Center mt="30px">
-        <Heading textDecor="highlight">Car investment <span style={{"textDecoration" : "underline","WebkitTextDecorationLine":"lineThrough","textDecorationThickness": "20px","marginBottom": "30px","textDecorationColor":"#81FF62","marginTop":"10px"}}> reinvented </span></Heading>
+    {/* //TODO: use a Container */}
+    <Center mt="1rem" mb={{base: "-3rem", md: "-5rem"}}>
+        <Heading textDecor="highlight" fontSize={{base: "3xl", sm: "5xl"}} textAlign="center">
+            Car investment&nbsp;
+            <span style={{boxShadow: "rgb(129, 255, 98) 0px -15px 0px inset !important"}}>reinvented </span>
+        </Heading>
     </Center>
  
     <Center>
         <Image
           alt={'guide-2'}
           objectFit={'cover'}
-          boxSize="75%"
+          boxSize={{base: "95%", md: "85%"}}
           src={
             'https://media.discordapp.net/attachments/707421140179746946/858394956635570206/porsche-model.png?width=1805&height=1016'
           }
+          mb={{base: "12", md: "9", lg: "2"}}
         />
     </Center>
     
+    <Container>
+    <Flex flexDirection="row" ml="auto" mr="auto">
+      <Flex flexDirection={{ base: 'column', sm: 'column', lg: 'row' }}  >
+        <Flex flexDirection="column" textAlign={{base: "center", lg: "left"}}>
+            <Heading color="blackAlpha.400" fontSize="2xl" fontWeight="semibold">For the first time</Heading>
+            <Heading color="black" fontSize="3xl" my={2}>Buy cars like <span style={{color: "black",textShadow: "4px 2px #81ff62"}}>stocks</span></Heading>
+        </Flex>
 
-    <Flex flexDirection="row" ml="auto" mr="auto" w="60%">
-
-    <Flex flexDirection={{ base: 'column', sm: 'column', lg: 'row' }}  >
-      <Flex flexDirection="column" >
-          <Heading color="blackAlpha.700" fontSize="small">For the first time</Heading>
-          <Heading color="black" fontSize="large">Buy car like <span style={{"color":"#48BB78"}}>stocks</span></Heading>
-      </Flex>
-
-        <Text mt={{ base: '10px', sm: '10px', lg: '0px' }} ml={{ base: '', sm: '', lg: '45px' }} fontSize={{ base: '10px', sm: '20px', lg: '20px' }} w={{ base: '100%', sm: '100%', lg: '70%' }}>For the first time, investors around the globe can buy
-              into the car market through fully-compliant, fractional, 
-              tokenized ownership. Powered by blockchain.</Text>
+        <Text 
+          mt={{ base: '10px', sm: '10px', lg: '0px' }} ml={{ base: '', sm: '', lg: '45px' }} w={{ base: '100%', sm: '100%', lg: '70%' }}
+          fontSize={{ base: '0.9rem', sm: '0.9rem', lg: '1.2rem' }} fontWeight="light" textAlign={{base: "center", lg: "left"}}>
+            For the first time, investors around the globe can buy into the car market through fully-compliant, fractional, 
+              tokenized ownership. Powered by blockchain.
+        </Text>
       </Flex>
     </Flex>
+    </Container>
 
 
-    <Center>
-      <Button bg="black" color="white" mt={{ base: '25px', sm: '', lg: '40px' }} w="30%">Get in</Button>
+    <Center my={{base: "5"}}>
+      <SimpleGrid columns={{base: 2}} spacing={2}>
+        <Button bg="black" color="white">Get in</Button>
+        <Button bg="white" color="black" variant="outline">Learn more</Button>
+      </SimpleGrid>
+      
     </Center>
 
-    <Center>
-      <Heading textDecor="highlight" mt={{ base: '25px', sm: '100px', lg: '100px' }}>Get instant returns</Heading>
+    <Center mt="3rem">
+      <Heading textDecor="highlight" fontSize="3xl" mt={3}>Get instant returns</Heading>
     </Center>
     
 
