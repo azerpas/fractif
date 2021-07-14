@@ -1,30 +1,21 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Navbar from './components/navbar'
-import Hero from './components/hero'
-import Explain from './components/explain'
-import CardCar from './components/CardCar'
-import Newsletter from './components/newsletter'
-
+import Navbar from '../components/navbar'
+import Hero from '../components/hero'
+import Explain from '../components/explain'
+import CardCar from '../components/CardCar'
+import Newsletter from '../components/newsletter'
 
 import {
   Flex,
   Text,
   Center,
   Stack,
-  Spacer,
   SimpleGrid,
-  Box,
-  Divider,
   Heading,
   Container
 } from '@chakra-ui/react';
-import { createIcon } from "@chakra-ui/icons"
-import Pourcentage from './components/pourcentage'
-import CarStat911 from './components/CarStat/911'
-import CarClasseG from './components/CarStat/ClasseG'
-import PorscheSvg from './components/svg/Porsche'
-import CarStat from './components/CarStat'
+import Pourcentage from '../components/pourcentage'
+import PorscheSvg from '../components/svg/Porsche'
+import CarStat from '../components/CarStat'
 
 
 
@@ -75,9 +66,9 @@ export default function Home() {
       {/** TODO: fix overflow on  non-mobile */}
       
       <Flex mt="60px" ml={{ base: '', sm: '', lg: '20px' }} flexDirection={{ base: 'column', sm: 'column', lg: 'row' }} overflowX={{base: "auto"}} mx={{base: "4"}}>
-        <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
-        <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
-        <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
+        <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3290,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
+        <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3290,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
+        <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3290,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
       </Flex>
 
       <Center my="3rem">

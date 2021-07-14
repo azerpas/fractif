@@ -1,11 +1,6 @@
 import {
-    Button,
     Flex,
-    Heading,
-    Image,
-    SimpleGrid,
     Text,
-    Center,
     Box
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
@@ -17,7 +12,7 @@ type CarStatProps = {
     img: ReactNode
 }
 
-export default function CarStat(props: CarStatProps) {
+const CarStat = (props: CarStatProps) => {
     const curFormat = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR"})
     const percentFormat = new Intl.NumberFormat("fr-FR", { style: "percent" })
     const diffPercent = (a: number, b: number) => 100 * Math.abs( ( a - b ) / ( (a+b)/2 ) );
@@ -52,9 +47,9 @@ export default function CarStat(props: CarStatProps) {
                         </Text>
                     </Flex>
                 </Flex>
-        
-        
             </Box>
         </>
     );
-  }  
+}
+
+export default CarStat;
