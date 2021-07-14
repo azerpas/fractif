@@ -16,7 +16,8 @@ import {
   SimpleGrid,
   Box,
   Divider,
-  Heading
+  Heading,
+  Container
 } from '@chakra-ui/react';
 import { createIcon } from "@chakra-ui/icons"
 import Pourcentage from './components/pourcentage'
@@ -41,34 +42,36 @@ export default function Home() {
           </Text>
           <Flex flexDirection="column" mb={{ base: '70px', sm: '70px', lg: '0' }} margin={{ base: '', sm: '', lg: 'auto' }} ml={{ base: '20px', sm: '20px', lg: '80px' }}>
             <Text color="white" fontWeight="bold" fontSize={{ base: '12px', sm: '12px', lg: '2xl' }}  w={{ base: '90%', sm: '', lg: '85%' }}>But you don’t have to take our word for it.</Text>
-            <Text color="white" fontWeight="medium" fontSize={{ base: '10px', sm: '10px', lg: '15px' }}  w={{ base: '90%', sm: '', lg: '80%' }}>According to these nine Advisors in The Oracles, who 
-            made millions by investing in real estate.</Text>
+            <Text color="white" fontWeight="medium" fontSize={{ base: '10px', sm: '10px', lg: '15px' }}  w={{ base: '90%', sm: '', lg: '80%' }}>According to these car experts, who 
+            made millions by investing in cars.</Text>
           </Flex>
       </Flex>
-      <Center>
-          <Text fontWeight="bold" fontSize="2xl" textAlign="center">Be a partial owner of collector cars</Text>
-      </Center>
+      <Container>
+        <Center>
+          <Heading fontSize="3xl" mt={3}>Be a partial owner of collector cars</Heading>
+        </Center>
+        <Center mt="20px">
+          <SimpleGrid columns={10}>
+            <Pourcentage colorbox="#D9FFFD" pourcentageCard="10%"></Pourcentage>
+            <Pourcentage colorbox="#C5FFFB" pourcentageCard="20%"></Pourcentage>
+            <Pourcentage colorbox="#AAFCCB" pourcentageCard="30%"></Pourcentage>
+            <Pourcentage colorbox="#7BFAAE" pourcentageCard="40%"></Pourcentage>
+            <Pourcentage colorbox="#7DFA7B" pourcentageCard="50%"></Pourcentage>
+            <Pourcentage colorbox="#76EB73" pourcentageCard="60%"></Pourcentage>
+            <Pourcentage colorbox="#6FDD6D" pourcentageCard="70%"></Pourcentage>
+            <Pourcentage colorbox="#67D065" pourcentageCard="80%"></Pourcentage>
+            <Pourcentage colorbox="#5FC25D" pourcentageCard="90%"></Pourcentage>
+            <Pourcentage colorbox="#45A543" pourcentageCard="100%"></Pourcentage>
+            </SimpleGrid>
+        </Center>
 
-      <Center mt="20px">
-        <Flex flexDirection="row">
-          <Pourcentage colorbox="#D9FFFD" pourcentageCard="10%"></Pourcentage>
-          <Pourcentage colorbox="#C5FFFB" pourcentageCard="20%"></Pourcentage>
-          <Pourcentage colorbox="#AAFCCB" pourcentageCard="30%"></Pourcentage>
-          <Pourcentage colorbox="#7BFAAE" pourcentageCard="40%"></Pourcentage>
-          <Pourcentage colorbox="#7DFA7B" pourcentageCard="50%"></Pourcentage>
-          <Pourcentage colorbox="#76EB73" pourcentageCard="60%"></Pourcentage>
-          <Pourcentage colorbox="#6FDD6D" pourcentageCard="70%"></Pourcentage>
-          <Pourcentage colorbox="#67D065" pourcentageCard="80%"></Pourcentage>
-          <Pourcentage colorbox="#5FC25D" pourcentageCard="90%"></Pourcentage>
-          <Pourcentage colorbox="#45A543" pourcentageCard="100%"></Pourcentage>
-        </Flex>
-      </Center>
-
-      <Center>
-        <Text w={{ base: '80%', sm: '80%', lg: '40%' }} textAlign="center" mt="20px">
-          As in the stock market, buy up to 100% of the car and dispose of it physically or let us take care of it.
-        </Text>
-      </Center>
+        <Center>
+          <Text w={{ base: '80%', sm: '80%', lg: '40%' }} textAlign="center" mt="20px">
+            As in the stock market, buy up to 100% of the car and dispose of it physically or let us take care of it.
+          </Text>
+        </Center>
+      </Container>
+      
 
     <Flex mt="60px" ml={{ base: '', sm: '', lg: '20px' }} flexDirection={{ base: 'column', sm: 'column', lg: 'row' }}>
       <CarStat911></CarStat911>
