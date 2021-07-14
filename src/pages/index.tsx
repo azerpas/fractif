@@ -13,14 +13,32 @@ import {
   Heading,
   Container
 } from '@chakra-ui/react';
+
 import Pourcentage from '../components/pourcentage'
 import PorscheSvg from '../components/svg/Porsche'
 import CarStat from '../components/CarStat'
-
-
-
+import { createIcon } from "@chakra-ui/icons"
+import { useEffect } from 'react'
+import { getScript } from '../utils/google/recaptcha'
+import { useState } from 'react'
 
 export default function Home() {
+  const [recaptcha, setRecaptcha] = useState<string|undefined>();
+
+  if(!process.env.NEXT_PUBLIC_SITE_KEY) throw new Error("Site Key undefined");
+  const handleLoaded = (_: any) => {
+    window.grecaptcha.ready((_: any) => {
+      window.grecaptcha
+        .execute(process.env.NEXT_PUBLIC_SITE_KEY, { action: "newsletter" })
+        .then((token: string) => {
+            setRecaptcha(token)
+        });
+    })
+  }
+  // Add recaptcha script
+  useEffect(()=>{
+      document.body.appendChild(getScript(handleLoaded))
+  }, []);
   return (
     <>
       <Navbar/>
@@ -107,7 +125,7 @@ export default function Home() {
           </Stack>
         </Flex>
       </Center>
-      <Newsletter/>
+      <Newsletter recaptcha={recaptcha} setRecaptcha={setRecaptcha}/>
     </>
   )
 }
