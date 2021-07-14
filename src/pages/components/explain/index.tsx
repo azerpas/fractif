@@ -18,7 +18,7 @@ export default function Explain() {
 
   return (
     <>
-      <Center mt="60px" mb="10px">
+      <Center mt="3rem" mb="10px">
           <Heading fontSize="3xl" mt={3}>How It Works</Heading>
       </Center>
       <Center >
