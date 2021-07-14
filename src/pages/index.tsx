@@ -73,15 +73,14 @@ export default function Home() {
         </Center>
       </Container>
       {/** TODO: fix overflow on  non-mobile */}
-      <Container overflow={{base: "auto", md: "unset"}}>
-        <Flex mt="60px" ml={{ base: '', sm: '', lg: '20px' }} flexDirection={{ base: 'column', sm: 'column', lg: 'row' }}>
-          <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
-          <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
-          <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
-        </Flex>
-      </Container>
+      
+      <Flex mt="60px" ml={{ base: '', sm: '', lg: '20px' }} flexDirection={{ base: 'column', sm: 'column', lg: 'row' }} overflowX={{base: "auto"}} mx={{base: "4"}}>
+        <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
+        <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
+        <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
+      </Flex>
 
-      <Center mt="50px">
+      <Center my="3rem">
         <Flex w="80%">
           <Stack >
             <Stack  mt="15px"> 
@@ -110,8 +109,8 @@ export default function Home() {
               FlexDirection="column"
               spacing={6}> 
               <Text w={{ base: '', sm: '', lg: '60%' }} textAlign="right">
-              Build wealth by investing in hundreds of cars and earn big in the long term.
-              We allow you to invest in cars without risking to buy a car at 100% and allowing you to buy shares of cars in order to resell them some time later
+                Build wealth by investing in hundreds of cars and earn big in the long term.
+                We allow you to invest in cars without risking to buy a car at 100% and allowing you to buy shares of cars in order to resell them some time later or collect them for you own semi-digital collection
               </Text>
             </Flex>
           </Stack>
