@@ -51,7 +51,7 @@ export default function Home() {
           <Heading fontSize="3xl" mt={3}>Be a partial owner of collector cars</Heading>
         </Center>
         <Center mt="20px">
-          <SimpleGrid columns={10}>
+          <SimpleGrid columns={10} w="90vw">
             <Pourcentage colorbox="#D9FFFD" pourcentageCard="10%"></Pourcentage>
             <Pourcentage colorbox="#C5FFFB" pourcentageCard="20%"></Pourcentage>
             <Pourcentage colorbox="#AAFCCB" pourcentageCard="30%"></Pourcentage>

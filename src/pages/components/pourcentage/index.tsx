@@ -35,11 +35,11 @@ export default function Pourcentage(data) {
   }, [])
   return (
     <>
-    <Box bg={data.colorbox} alignItems="center" ref={boxRef}>
-      <Center >
-          <Text fontWeight="bold" color="blackAlpha.500" fontSize={dimensions.width / 2} my="1" textAlign="center">{data.pourcentageCard}</Text>
-      </Center>
-    </Box>
+      <Box bg={data.colorbox} alignItems="center" ref={boxRef} minH={dimensions.width + "px"} display="flex" justifyContent="center">
+        <Center >
+            <Text fontWeight="bold" color="blackAlpha.500" fontSize={dimensions.width / 3} my="1" textAlign="center">{data.pourcentageCard}</Text>
+        </Center>
+      </Box>
     </>
   );
 }
