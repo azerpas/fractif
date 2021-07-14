@@ -18,7 +18,7 @@ import {CheckCircleIcon} from '@chakra-ui/icons';
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";  
-import { Contact } from '../../../types/Contact';
+import { Contact } from '../../types/Contact';
 
 type ContactFields = {
     response: string
