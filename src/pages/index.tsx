@@ -23,7 +23,7 @@ import { createIcon } from "@chakra-ui/icons"
 import Pourcentage from './components/pourcentage'
 import CarStat911 from './components/CarStat/911'
 import CarClasseG from './components/CarStat/ClasseG'
-import CarPhantom from './components/CarStat/Phantom'
+import PorscheSvg from './components/svg/Porsche'
 import CarStat from './components/CarStat'
 
 
@@ -75,9 +75,9 @@ export default function Home() {
       
       <Container>
         <Flex mt="60px" ml={{ base: '', sm: '', lg: '20px' }} flexDirection={{ base: 'column', sm: 'column', lg: 'row' }}>
-          <CarStat911></CarStat911>
-          <CarClasseG></CarClasseG>
-          <CarStat name="Porsche 911 GT3 992" price={12798300} variation={3293} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<></>}/>
+          <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
+          <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
+          <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
         </Flex>
       </Container>
 
