@@ -110,7 +110,7 @@ export default function Newsletter({recaptcha, setRecaptcha}: {recaptcha: string
 					<Spinner size="xl"/>
 					:
 					<form onSubmit={handleSubmit(onSubmit)}>
-						<Stack spacing={4} direction={{ base: 'column', sm: 'column', xl: 'row' }} w={'full'}>
+						<Stack spacing={4} direction={{ base: 'column' }} w={'full'}>
 							<FormControl id="email">
 								<FormLabel>Email address</FormLabel>
 								<Input type="email" {...register("email", {required: true, pattern: /[^@\s]+@[^@\s]+\.[^@\s]+/im})} />
@@ -153,9 +153,7 @@ export default function Newsletter({recaptcha, setRecaptcha}: {recaptcha: string
 							{errors.response ? errors.response.message : null} {errors.listId ? errors.listId.type : null}
 							<Input
 							bg={'green.400'}
-							rounded={'full'}
 							color={'white'}
-							flex={'1 0 auto'}
 							_hover={{ bg: 'green.500' }}
 							_focus={{ bg: 'green.500' }}
 							type="submit"
