@@ -24,6 +24,7 @@ import Pourcentage from './components/pourcentage'
 import CarStat911 from './components/CarStat/911'
 import CarClasseG from './components/CarStat/ClasseG'
 import CarPhantom from './components/CarStat/Phantom'
+import CarStat from './components/CarStat'
 
 
 
@@ -46,7 +47,7 @@ export default function Home() {
             made millions by investing in cars.</Text>
           </Flex>
       </Flex>
-      <Container>
+      <Container mt="3rem">
         <Center>
           <Heading fontSize="3xl" mt={3}>Be a partial owner of collector cars</Heading>
         </Center>
@@ -66,18 +67,19 @@ export default function Home() {
         </Center>
 
         <Center>
-          <Text w={{ base: '80%', sm: '80%', lg: '40%' }} textAlign="center" mt="20px">
+          <Text textAlign="center" mt="20px">
             As in the stock market, buy up to 100% of the car and dispose of it physically or let us take care of it.
           </Text>
         </Center>
       </Container>
       
-
-    <Flex mt="60px" ml={{ base: '', sm: '', lg: '20px' }} flexDirection={{ base: 'column', sm: 'column', lg: 'row' }}>
-      <CarStat911></CarStat911>
-      <CarClasseG></CarClasseG>
-      <CarPhantom></CarPhantom>
-    </Flex>
+      <Container>
+        <Flex mt="60px" ml={{ base: '', sm: '', lg: '20px' }} flexDirection={{ base: 'column', sm: 'column', lg: 'row' }}>
+          <CarStat911></CarStat911>
+          <CarClasseG></CarClasseG>
+          <CarStat name="Porsche 911 GT3 992" price={12798300} variation={3293} lastTwelveMonths={[3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<></>}/>
+        </Flex>
+      </Container>
 
 <Center mt="50px">
   <Flex w="80%">

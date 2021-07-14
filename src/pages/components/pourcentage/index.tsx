@@ -11,15 +11,13 @@ import {
 import { useEffect } from 'react';
 import { useRef, useLayoutEffect, useState } from 'react';
 
-import GreenShadow from "../Shadow/green"
-
 export default function Pourcentage(data) {
   const boxRef = useRef();
-  
   const [dimensions, setDimensions] = useState<{width: undefined|number, height: undefined|number}>({width: undefined, height: undefined});
   useLayoutEffect(() => {
     if(boxRef.current){
-      setDimensions({width: boxRef.current!.offsetWidth, height: boxRef.current!.offsetHeight});
+      //@ts-ignore
+      setDimensions({width: boxRef.current.offsetWidth, height: boxRef.current.offsetHeight});
     }
   }, []);
   useEffect(() => {
@@ -28,7 +26,8 @@ export default function Pourcentage(data) {
       clearInterval(movement_timer);
       movement_timer = setTimeout(() => {
         if(boxRef.current){
-          setDimensions({width: boxRef.current!.offsetWidth, height: boxRef.current.offsetHeight});
+          //@ts-ignore
+          setDimensions({width: boxRef.current.offsetWidth, height: boxRef.current.offsetHeight});
         }
       }, 100);
     });
