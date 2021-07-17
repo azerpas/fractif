@@ -52,7 +52,7 @@ export default function Explain() {
                       alt="Car listings"
                       objectFit={'cover'}
                       src={
-                      'https://media.discordapp.net/attachments/707421140179746946/858521545273376768/PXgdd5t.png'
+                      'https://cdn.discordapp.com/attachments/809868554815537163/865783631456763944/CarSelling-1.png'
                       }/>
                   </Box>
                   <Box display={{base: "block", lg: "flex"}} flexDirection="column" justifyContent="space-between">
@@ -60,7 +60,7 @@ export default function Explain() {
                     <Text ml="15px" w={{ base: '90%' }} fontSize={{ base: '0.9rem' }} fontWeight="light" color="gray.600">Instantly purchase a whole car or only a fraction of it.</Text>
                     <Image
                       objectFit={'cover'}
-                      src={'https://media.discordapp.net/attachments/707421140179746946/858521543108460554/i0AIWwe.png'}
+                      src={'https://media.discordapp.net/attachments/809868554815537163/865783630994866216/CarSelling-2.png?width=789&height=622'}
                       alt="Filter car search form"
                       />
                   </Box>
@@ -70,7 +70,7 @@ export default function Explain() {
                     <Image
                       alt="A man using its computer to browse our website"
                       objectFit={'cover'}
-                      src={'https://media.discordapp.net/attachments/707421140179746946/858521541934317568/G4fe4a0.png'}
+                      src={'https://cdn.discordapp.com/attachments/809868554815537163/865783633465049108/CarSelling-3.png'}
                     />
                   </Box>
                 </SimpleGrid>

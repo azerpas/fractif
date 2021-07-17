@@ -12,8 +12,8 @@ import {
 	FormHelperText,
 	FormLabel,
 	FormErrorMessage,
-	Spinner
-} from '@chakra-ui/react';
+	Spinner,
+	Center} from '@chakra-ui/react';
 import {CheckCircleIcon} from '@chakra-ui/icons';
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import { useState } from 'react';
@@ -110,7 +110,7 @@ export default function Newsletter({recaptcha, setRecaptcha}: {recaptcha: string
 					<Spinner size="xl"/>
 					:
 					<form onSubmit={handleSubmit(onSubmit)}>
-						<Stack spacing={4} direction={{ base: 'column', sm: 'column', xl: 'row' }} w={'full'}>
+						<Stack  flexDirection={{ base: 'column', sm: 'column', xl: 'column' }} w={'full'} alignContent="center">
 							<FormControl id="email">
 								<FormLabel>Email address</FormLabel>
 								<Input type="email" {...register("email", {required: true, pattern: /[^@\s]+@[^@\s]+\.[^@\s]+/im})} />
