@@ -83,7 +83,7 @@ export default function Home() {
       </Container>
       {/** TODO: fix overflow on  non-mobile */}
       
-      <Flex mt="60px" ml={{ base: '', sm: '', lg: '20px' }} flexDirection={{ base: 'column', sm: 'column', lg: 'row' }} overflowX={{base: "auto"}} mx={{base: "4"}}>
+      <Flex mt="60px" ml={{ base: '', sm: '', lg: '20px' }} flexDirection={{ base: 'column', sm: 'column', lg: 'row' }}  mx={{base: "4"}}>
         <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3290,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
         <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3290,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
         <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3290,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
@@ -109,7 +109,7 @@ export default function Home() {
               FlexDirection="column"
               spacing={6}
             > 
-              <Heading color="green.400" textAlign="right"  mt="50px">Why Investing in Cars ?</Heading>
+              <Heading color="green.400" textAlign="right"  >Why Investing in Cars ?</Heading>
       
             </Flex>
             <Flex mr="25px" alignContent="right"          
@@ -117,7 +117,7 @@ export default function Home() {
               justify='flex-end'
               FlexDirection="column"
               spacing={6}> 
-              <Text w={{ base: '', sm: '', lg: '60%' }} textAlign="right">
+              <Text w={{ base: '', sm: '', lg: '60%' }} mt="50px" textAlign="right">
                 Build wealth by investing in hundreds of cars and earn big in the long term.
                 We allow you to invest in cars without risking to buy a car at 100% and allowing you to buy shares of cars in order to resell them some time later or collect them for you own semi-digital collection
               </Text>
