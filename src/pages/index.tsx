@@ -21,6 +21,7 @@ import { createIcon } from "@chakra-ui/icons"
 import { useEffect } from 'react'
 import { getScript } from '../utils/google/recaptcha'
 import { useState } from 'react'
+import Footer from '../components/footer'
 
 export default function Home() {
   const [recaptcha, setRecaptcha] = useState<string|undefined>();
@@ -126,6 +127,7 @@ export default function Home() {
         </Flex>
       </Center>
       <Newsletter recaptcha={recaptcha} setRecaptcha={setRecaptcha}/>
+      <Footer/>
     </>
   )
 }
