@@ -14,6 +14,8 @@ import {
   Container
 } from '@chakra-ui/react';
 
+import Link from "next/link";
+
 import Pourcentage from '../components/pourcentage'
 import PorscheSvg from '../components/svg/Porsche'
 import CarStat from '../components/CarStat'
@@ -22,6 +24,7 @@ import { useEffect } from 'react'
 import { getScript } from '../utils/google/recaptcha'
 import { useState } from 'react'
 import Footer from '../components/footer'
+import WSJ from '../components/svg/WSJ'
 
 export default function Home() {
   const [recaptcha, setRecaptcha] = useState<string|undefined>();
@@ -54,6 +57,8 @@ export default function Home() {
           <Flex flexDirection="column" mb={{ base: '70px', sm: '70px', lg: '0' }} margin={{ base: '', sm: '', lg: 'auto' }} ml={{ base: '20px', sm: '20px', lg: '80px' }}>
             <Text color="white" fontWeight="bold" fontSize={{ base: '12px', sm: '12px', lg: '2xl' }}  w={{ base: '90%', sm: '', lg: '85%' }}>Diversify your investment and earn big.</Text>
             <Text color="white" fontWeight="medium" fontSize={{ base: '10px', sm: '10px', lg: '15px' }}  w={{ base: '90%', sm: '', lg: '80%' }}>Pre-owned popular cars prices are hitting an all time high, making some early purchases an amazing source of investment. </Text>
+            <Text color="white" as="cite" fontWeight="medium" fontSize={{ base: '10px', sm: '10px', lg: '15px' }}  w={{ base: '90%', sm: '', lg: '80%' }} my="2">"Used-car prices, which have soared in recent months, are now defying economic gravity." </Text>
+            <Text color="white" fontWeight="medium" fontSize={{ base: '10px', sm: '10px', lg: '15px' }}  w={{ base: '90%', sm: '', lg: '80%' }}><WSJ/> </Text>
           </Flex>
       </Flex>
       <Container mt="3rem">
