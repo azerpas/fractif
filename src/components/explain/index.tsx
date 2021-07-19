@@ -46,8 +46,7 @@ export default function Explain() {
                 <SimpleGrid columns={{ base: 1, sm: 1, lg: 3 }} spacing={{ base: 5, lg: 10 }} mt="40px" >
                   <Box display={{base: "block", lg: "flex"}} flexDirection="column" justifyContent="space-between">
                     <Heading ml="15px" fontWeight="semibold" fontSize={{ base: "large" }}>1. Browse car and listings</Heading>
-                    <Text ml="15px" w={{ base: '90%' }} fontSize={{ base: '0.9rem' }} fontWeight="light" color="gray.600">Browse hundreds of 100% safe & legit listings of 
-                        the best bots, all available for instant download.</Text>
+                    <Text ml="15px" w={{ base: '90%' }} fontSize={{ base: '0.9rem' }} fontWeight="light" color="gray.600">Browse our listings and discover a large offers of exceptional cars, carefully selected by our team.</Text>
                     <Image
                       alt="Car listings"
                       objectFit={'cover'}
@@ -66,7 +65,7 @@ export default function Explain() {
                   </Box>
                   <Box display={{base: "block", lg: "flex"}} flexDirection="column" justifyContent="space-between">
                     <Heading ml="15px" fontWeight="semibold" fontSize={{ base: "large" }}>3. Download your new bot</Heading>
-                    <Text ml="15px" w={{ base: '90%' }} fontSize={{ base: '0.9rem' }} fontWeight="light" color="gray.600">No waiting for sellers, just download your bot as soon as you purchase and get ready to cop some sneakers!</Text>
+                    <Text ml="15px" w={{ base: '90%' }} fontSize={{ base: '0.9rem' }} fontWeight="light" color="gray.600">Keep track of your purchase and hold or resale your share whenever you want!</Text>
                     <Image
                       alt="A man using its computer to browse our website"
                       objectFit={'cover'}
