@@ -41,36 +41,41 @@ export default function Explain() {
           </Center>
 
           <Center>
-            <Container textAlign="center">
-              <Box w="90%" alignItems="center" justifyContent="center">
+            <Container textAlign="center" maxW={{base: "container.sm", md: "container.lg"}}>
+              <Box alignItems="center" justifyContent="center">
                 <SimpleGrid columns={{ base: 1, sm: 1, lg: 3 }} spacing={{ base: 5, lg: 10 }} mt="40px" >
                   <Box display={{base: "block", lg: "flex"}} flexDirection="column" justifyContent="space-between">
-                    <Heading ml="15px" fontWeight="semibold" fontSize={{ base: "large" }}>1. Browse car and listings</Heading>
-                    <Text ml="15px" w={{ base: '90%' }} fontSize={{ base: '0.9rem' }} fontWeight="light" color="gray.600">Browse hundreds of 100% safe & legit listings of 
-                        the best bots, all available for instant download.</Text>
+                    <Box>
+                      <Heading ml="15px" fontWeight="semibold" fontSize={{ base: "large" }}>1. Browse car and listings</Heading>
+                      <Text mt="2" ml="15px" w={{ base: '90%' }} fontSize={{ base: '0.9rem' }} fontWeight="light" color="gray.600">Browse our listings and discover a large offers of exceptional cars, carefully selected by our team.</Text>
+                    </Box>
                     <Image
                       alt="Car listings"
                       objectFit={'cover'}
                       src={
-                      'https://media.discordapp.net/attachments/707421140179746946/858521545273376768/PXgdd5t.png'
+                      'https://cdn.discordapp.com/attachments/809868554815537163/865783631456763944/CarSelling-1.png'
                       }/>
                   </Box>
                   <Box display={{base: "block", lg: "flex"}} flexDirection="column" justifyContent="space-between">
-                    <Heading ml="15px" fontWeight="semibold" fontSize={{ base: "large" }}>2. Purchase 1 to 100% of the car</Heading>
-                    <Text ml="15px" w={{ base: '90%' }} fontSize={{ base: '0.9rem' }} fontWeight="light" color="gray.600">Instantly purchase a whole car or only a fraction of it.</Text>
+                    <Box>
+                      <Heading ml="15px" fontWeight="semibold" fontSize={{ base: "large" }}>2. Purchase shares of the car</Heading>
+                      <Text mt="2" ml="15px" w={{ base: '90%' }} fontSize={{ base: '0.9rem' }} fontWeight="light" color="gray.600">Instantly purchase a whole car or only a share of it, soon powered by the blockchain.</Text>
+                    </Box>
                     <Image
                       objectFit={'cover'}
-                      src={'https://media.discordapp.net/attachments/707421140179746946/858521543108460554/i0AIWwe.png'}
+                      src={'https://media.discordapp.net/attachments/809868554815537163/865783630994866216/CarSelling-2.png?width=789&height=622'}
                       alt="Filter car search form"
                       />
                   </Box>
                   <Box display={{base: "block", lg: "flex"}} flexDirection="column" justifyContent="space-between">
-                    <Heading ml="15px" fontWeight="semibold" fontSize={{ base: "large" }}>3. Download your new bot</Heading>
-                    <Text ml="15px" w={{ base: '90%' }} fontSize={{ base: '0.9rem' }} fontWeight="light" color="gray.600">No waiting for sellers, just download your bot as soon as you purchase and get ready to cop some sneakers!</Text>
+                    <Box>
+                      <Heading ml="15px" fontWeight="semibold" fontSize={{ base: "large" }}>3. Download your new bot</Heading>
+                      <Text mt="2" ml="15px" w={{ base: '90%' }} fontSize={{ base: '0.9rem' }} fontWeight="light" color="gray.600">Keep track of your purchase and hold or resale your share whenever you want!</Text>
+                    </Box>
                     <Image
                       alt="A man using its computer to browse our website"
                       objectFit={'cover'}
-                      src={'https://media.discordapp.net/attachments/707421140179746946/858521541934317568/G4fe4a0.png'}
+                      src={'https://cdn.discordapp.com/attachments/809868554815537163/865783633465049108/CarSelling-3.png'}
                     />
                   </Box>
                 </SimpleGrid>

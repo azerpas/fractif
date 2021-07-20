@@ -16,14 +16,16 @@ import {
         <>
             <Center mt="3rem">
                 <Flex flexDirection="column"> 
-                    <Heading fontSize="3xl" mt={3}>Our Curated Cars</Heading>
+                    <Heading fontSize="3xl">Our Curated Cars</Heading>
                     <Center my="3">
-                        <Heading color="green.300" fontSize="xl" fontWeight="bold">Invest.  Earn.  Sell.</Heading>
+                        <Heading color="green.300" fontSize="xl" fontWeight="bold">Invest. &nbsp;Earn.&nbsp;  Sell.</Heading>
+                        {/** TODO: https://vercel.com/home style heading gradient */}
                     </Center>
                 </Flex>
             </Center>
             <Box
                 margin="auto"
+                mt="3"
                 w={{ base: '80%', md: '60%', lg: '60%' }}
                 h={{ base: '80%' }}
                 border="none"

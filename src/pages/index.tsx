@@ -14,6 +14,8 @@ import {
   Container
 } from '@chakra-ui/react';
 
+import Link from "next/link";
+
 import Pourcentage from '../components/pourcentage'
 import PorscheSvg from '../components/svg/Porsche'
 import CarStat from '../components/CarStat'
@@ -21,6 +23,8 @@ import { createIcon } from "@chakra-ui/icons"
 import { useEffect } from 'react'
 import { getScript } from '../utils/google/recaptcha'
 import { useState } from 'react'
+import Footer from '../components/footer'
+import WSJ from '../components/svg/WSJ'
 
 export default function Home() {
   const [recaptcha, setRecaptcha] = useState<string|undefined>();
@@ -51,9 +55,10 @@ export default function Home() {
             The fractional investment is the least risky investment.
           </Text>
           <Flex flexDirection="column" mb={{ base: '70px', sm: '70px', lg: '0' }} margin={{ base: '', sm: '', lg: 'auto' }} ml={{ base: '20px', sm: '20px', lg: '80px' }}>
-            <Text color="white" fontWeight="bold" fontSize={{ base: '12px', sm: '12px', lg: '2xl' }}  w={{ base: '90%', sm: '', lg: '85%' }}>But you don’t have to take our word for it.</Text>
-            <Text color="white" fontWeight="medium" fontSize={{ base: '10px', sm: '10px', lg: '15px' }}  w={{ base: '90%', sm: '', lg: '80%' }}>According to these car experts, who 
-            made millions by investing in cars.</Text>
+            <Text color="white" fontWeight="bold" fontSize={{ base: '12px', sm: '12px', lg: '2xl' }}  w={{ base: '90%', sm: '', lg: '85%' }}>Diversify your investment and earn big.</Text>
+            <Text color="white" fontWeight="medium" fontSize={{ base: '10px', sm: '10px', lg: '15px' }}  w={{ base: '90%', sm: '', lg: '80%' }}>Pre-owned popular cars prices are hitting an all time high, making some early purchases an amazing source of investment. </Text>
+            <Text color="white" as="cite" fontWeight="medium" fontSize={{ base: '10px', sm: '10px', lg: '15px' }}  w={{ base: '90%', sm: '', lg: '80%' }} my="2">&quot;Used-car prices, which have soared in recent months, are now defying economic gravity.&quot;</Text>
+            <Text color="white" fontWeight="medium" fontSize={{ base: '10px', sm: '10px', lg: '15px' }}  w={{ base: '90%', sm: '', lg: '80%' }}><WSJ/> </Text>
           </Flex>
       </Flex>
       <Container mt="3rem">
@@ -83,7 +88,7 @@ export default function Home() {
       </Container>
       {/** TODO: fix overflow on  non-mobile */}
       
-      <Flex mt="60px" ml={{ base: '', sm: '', lg: '20px' }} flexDirection={{ base: 'column', sm: 'column', lg: 'row' }} overflowX={{base: "auto"}} mx={{base: "4"}}>
+      <Flex mt="60px" ml={{ base: '', sm: '', lg: '20px' }} flexDirection={{ base: 'column', sm: 'column', lg: 'row' }}  mx={{base: "4"}}>
         <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3290,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
         <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3290,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
         <CarStat name="Porsche 911 GT3 992" price={12798300} lastTwelveMonths={[3290,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293,3293]} img={<PorscheSvg/>}/>
@@ -109,23 +114,23 @@ export default function Home() {
               FlexDirection="column"
               spacing={6}
             > 
-              <Heading color="green.400" textAlign="right"  mt="50px">Why Investing in Cars ?</Heading>
-      
+              <Heading color="green.400" textAlign="right">Why Invest in Cars ?</Heading>
             </Flex>
             <Flex mr="25px" alignContent="right"          
             flex={{ base: 1, md: 0 }}
               justify='flex-end'
               FlexDirection="column"
               spacing={6}> 
-              <Text w={{ base: '', sm: '', lg: '60%' }} textAlign="right">
-                Build wealth by investing in hundreds of cars and earn big in the long term.
-                We allow you to invest in cars without risking to buy a car at 100% and allowing you to buy shares of cars in order to resell them some time later or collect them for you own semi-digital collection
+              <Text w={{ base: '', sm: '', lg: '60%' }} mt="50px" textAlign="right">
+                Classic cars are becoming increasingly rare.
+                The electric car market is booming, however it still lacks a certain driving fun that old cool cars are giving. As the European Commission quickly passes new laws, buyer demand is growing exponentially.
               </Text>
             </Flex>
           </Stack>
         </Flex>
       </Center>
       <Newsletter recaptcha={recaptcha} setRecaptcha={setRecaptcha}/>
+      <Footer/>
     </>
   )
 }
