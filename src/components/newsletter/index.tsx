@@ -72,7 +72,7 @@ export default function Newsletter({recaptcha, setRecaptcha}: {recaptcha: string
 					<Heading
 					textTransform={'uppercase'}
 					fontSize={'3xl'}>
-					Successfully subscribed
+						Successfully subscribed 🤝
 					</Heading>
 					<Icon as={CheckCircleIcon} width="4rem"/>
 				</Stack>
@@ -102,7 +102,7 @@ export default function Newsletter({recaptcha, setRecaptcha}: {recaptcha: string
 					Subscribe
 					</Heading>
 					<Text fontSize={'lg'} color={'gray.500'}>
-					Subscribe to our newsletter & stay up to date!
+					Subscribe to our newsletter & stay up to date !
 					</Text>
 				</Stack>
 				{
