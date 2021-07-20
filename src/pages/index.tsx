@@ -114,8 +114,7 @@ export default function Home() {
               FlexDirection="column"
               spacing={6}
             > 
-              <Heading color="green.400" textAlign="right"  >Why Investing in Cars ?</Heading>
-      
+              <Heading color="green.400" textAlign="right">Why Invest in Cars ?</Heading>
             </Flex>
             <Flex mr="25px" alignContent="right"          
             flex={{ base: 1, md: 0 }}
@@ -123,8 +122,8 @@ export default function Home() {
               FlexDirection="column"
               spacing={6}> 
               <Text w={{ base: '', sm: '', lg: '60%' }} mt="50px" textAlign="right">
-                Build wealth by investing in hundreds of cars and earn big in the long term.
-                We allow you to invest in cars without risking to buy a car at 100% and allowing you to buy shares of cars in order to resell them some time later or collect them for you own semi-digital collection
+                Classic cars are becoming increasingly rare.
+                The electric car market is booming, however it still lacks a certain driving fun that old cool cars are giving. As the European Commission quickly passes new laws, buyer demand is growing exponentially.
               </Text>
             </Flex>
           </Stack>
