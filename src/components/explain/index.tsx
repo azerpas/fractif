@@ -42,7 +42,7 @@ export default function Explain() {
 
           <Center>
             <Container textAlign="center" maxW={{base: "container.sm", md: "container.lg"}}>
-              <Box alignItems="center" justifyContent="center">
+              <Box w={{ base: "100%", sm: "100%", lg: "1000px" }} alignItems="center" justifyContent="center">
                 <SimpleGrid columns={{ base: 1, sm: 1, lg: 3 }} spacing={{ base: 5, lg: 10 }} mt="40px" >
                   <Box display={{base: "block", lg: "flex"}} flexDirection="column" justifyContent="space-between">
                     <Box>

@@ -43,7 +43,7 @@ export default function SplitScreen() {
         </Flex>
 
         <Text 
-          mt={{ base: '10px', sm: '10px', lg: '0px' }} ml={{ base: '', sm: '', lg: '45px' }} w={{ base: '100%', sm: '100%', lg: '70%' }}
+          mt={{ base: '10px', sm: '10px', lg: '0px' }} ml={{ base: '', sm: '', lg: '45px' }}  w={{ base: '100%', sm: '100%', lg: '600px' }}
           fontSize={{ base: '0.9rem', sm: '0.9rem', lg: '1rem' }} fontWeight="light" textAlign={{base: "center", lg: "left"}}>
             For the first time, investors around the globe can buy into the car market through fully-compliant, fractional, 
               tokenized ownership. Powered by blockchain.
