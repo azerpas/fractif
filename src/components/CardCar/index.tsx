@@ -10,9 +10,13 @@ import {
     Stack,
     Spacer
 } from '@chakra-ui/react';
+import { useState } from 'react';
 import { GradientWrapper } from '../typography/Gradient';
 
 export default function CardCar() {
+    const [releaseDate, setReleaseDate] = useState(new Date(new Date().getTime() + (24 * 60 * 60 * 1000)))
+    // TODO: calculate diff time between release date and now
+    setInterval(() => setReleaseDate(new Date(releaseDate.getTime() - 1 * 1000)))
     return (
         <>
             <Center mt="1rem">
@@ -64,7 +68,7 @@ export default function CardCar() {
                             </Stack>
 
                             <Stack>
-                                <Text fontWeight="extrabold" margin="auto" color="green.700" fontSize={{ base: '70%', sm: '', lg: "80%" }}>Opening in 1 day 3 hours</Text>
+                                <Text fontWeight="extrabold" margin="auto" color="black" fontSize={{ base: '70%', sm: '', lg: "80%" }}>{releaseDate.getHours()}:{releaseDate.getMinutes()}:{releaseDate.getSeconds()}</Text>
                             </Stack>
 
                             <Stack bg="green.400" mt="20px">
