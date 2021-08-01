@@ -1,7 +1,7 @@
 import { css, keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
-type GradientProps = {number: number,colorFrom: string, colorTo: string, content: string, children: React.ReactNode, top?: string}
+type GradientProps = {number: 0 | 1 | 2, colorFrom: string, colorTo: string, content: string, children: React.ReactNode, top?: string}
 
 const fade_1 = keyframes`
     0%,16.667%,to {

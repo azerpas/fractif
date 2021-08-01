@@ -10,6 +10,7 @@ import {
     Stack,
     Spacer
 } from '@chakra-ui/react';
+import { GradientWrapper } from '../typography/Gradient';
 
 export default function CardCar() {
     return (
@@ -19,8 +20,11 @@ export default function CardCar() {
             </Center>
             <Flex flexDirection={{ base: 'column', md: 'column', lg: 'row' }} mt="2rem" justifyContent="space-between">
                 <Center my="3" ml={{ lg: '40px' }} width={{md: "100%", lg: "80%"}}>
-                    <Heading color="green.300" textAlign="center" fontSize={{ base: '4xl', md: '4xl', lg: '120px' }} fontWeight="bold">Invest. <br/>Earn. <br/>  Sell.</Heading>
-                    {/** TODO: https://vercel.com/home style heading gradient */}
+                    <Heading color="grey.100" textAlign="center" fontSize={{ base: '4xl', md: '4xl', lg: '120px' }} fontWeight="bold">
+                        <GradientWrapper number={0} colorFrom="#ff2800" colorTo="#F01900" content="Invest. " top="0px">Invest.</GradientWrapper> <br/>
+                        <GradientWrapper number={1} colorFrom="#ff2800" colorTo="#F01900" content="Earn. " top="0px">Earn. </GradientWrapper> <br/>
+                        <GradientWrapper number={2} colorFrom="#ff2800" colorTo="#F01900" content="Sell. " top="0px">Sell. </GradientWrapper> <br/>
+                    </Heading>
                 </Center>
                 <Flex flexDirection="column">
                     <Center >
