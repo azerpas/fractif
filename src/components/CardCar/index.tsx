@@ -7,7 +7,8 @@ import {
     Text,
     Center,
     Box,
-    Stack
+    Stack,
+    Spacer
 } from '@chakra-ui/react';
 
 export default function CardCar() {
@@ -16,13 +17,12 @@ export default function CardCar() {
             <Center mt="1rem">
                 <Heading fontSize="3xl">Our Curated Cars</Heading>
             </Center>
-            <Flex flexDirection={{ base: 'column', md: 'column', lg: 'row' }} mt="2rem" >
-                
-                <Center my="3" ml={{ lg: '40px' }}>
+            <Flex flexDirection={{ base: 'column', md: 'column', lg: 'row' }} mt="2rem" justifyContent="space-between">
+                <Center my="3" ml={{ lg: '40px' }} width={{md: "100%", lg: "80%"}}>
                     <Heading color="green.300" textAlign="center" fontSize={{ base: '4xl', md: '4xl', lg: '120px' }} fontWeight="bold">Invest. <br/>Earn. <br/>  Sell.</Heading>
                     {/** TODO: https://vercel.com/home style heading gradient */}
                 </Center>
-                <Flex flexDirection="column" ml={{ lg: '80px' }}>
+                <Flex flexDirection="column">
                     <Center >
                         <Box
                             margin="auto"
