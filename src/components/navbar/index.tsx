@@ -28,14 +28,13 @@ export default function WithSubnavigation() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
-        color={useColorModeValue('gray.600', 'white')}
+        bg={"#16161A"}
+        color={'white'}
         minH={'60px'}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
         align={'center'}>
         <Flex
           flex={{ base: 1, md: 'auto' }}
@@ -51,6 +50,13 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+          <Text
+            fontFamily={'heading'}
+            fontSize={"4xl"}
+            fontWeight={'bold'}
+            >
+            Fractif
+          </Text>
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
           </Flex>
@@ -65,21 +71,31 @@ export default function WithSubnavigation() {
             as={'a'}
             fontSize={'sm'}
             fontWeight={400}
+            color="white"
             variant={'link'}
             href={'#'}>
-            Sign In
+            Home
+          </Button>
+          <Button
+            as={'a'}
+            fontSize={'sm'}
+            fontWeight={400}
+            color="white"
+            variant={'link'}
+            href={'#'}>
+            Marketplace
           </Button>
           <Button
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
-            bg={'green.400'}
+            bg={'#2F80CB'}
             href={'#'}
             _hover={{
               bg: 'grey.100',
             }}>
-            Sign Up
+            Account
           </Button>
         </Stack>
       </Flex>
