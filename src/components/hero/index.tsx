@@ -14,8 +14,8 @@ import EthereumSvg from '../svg/ethereum'
 export default function SplitScreen() {
   return (
     <>
-      <Stack minH={{base:'100vh', md:"80vh"}} direction={{ base: 'column', md: 'row' }} bgColor="#16161A" justify={"center"} align={"center"} >
-        <Stack flexDirection={{ base: 'column', md: 'row' }} align={"center"} w="80%">
+      <Stack minH={{base:'100vh', md:"80vh"}} direction={{ base: 'column', md: 'row' }} bgColor="#16161A" justify={"center"} align={{base:"center",md:"start","2xl":"center"}} >
+        <Stack flexDirection={{ base: 'column', md: 'row' }} align={"center"} w="80%" >
         <Flex w="100%" align={'center'} justify={{ base: "center", md: 'right' }} pt={{base:"30%", md:"0"}} h="fit-content">
           <Stack spacing={6} w={{ base: '85%', md: '80%', lg:"80%" }} >
             <Heading fontSize={{ base: '3xl', md: '4xl', lg: "6xl", xl:"6xl", "2xl":"8xl" }} >
