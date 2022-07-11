@@ -1,6 +1,6 @@
-const hero_tokenization = () => {
+const Hero_tokenization_desktop = () => {
     return(
-        <svg width="644" height="650" viewBox="0 0 644 650" fill="none" xmlns="http://www.w3.org/2000/svg" >
+        <svg width="400" height="400" viewBox="0 0 644 650" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="644" height="650" fill="url(#pattern0)"/>
         <defs>
         <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -14,4 +14,4 @@ const hero_tokenization = () => {
 }
     
 
-export default hero_tokenization;
+export default Hero_tokenization_desktop;
