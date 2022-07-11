@@ -30,12 +30,12 @@ export default function Explain() {
             <Flex flexDirection="row" pt="50px">
               <Center mr="25px">
                 <Text
-                  textDecoration={ getexplain == true ? "underline" : ""} textDecorationColor="#2F80CB" textDecorationThickness="2px"
+                  textDecoration={ getexplain === true && "underline" } textDecorationColor="#2F80CB" textDecorationThickness="2px"
                   fontWeight="semibold" onClick={() => setexplain(true)}>Buying
                 </Text>
               </Center>
               <Center ml="25px">
-                <Text color="gray.600" textDecoration={ getexplain == false ? "underline" : ""} textDecorationColor="#2F80CB" fontWeight="semibold" onClick={() => setexplain(false)}>Selling</Text>
+                <Text color="gray.600" textDecoration={ getexplain === false && "underline"} textDecorationColor="#2F80CB" fontWeight="semibold" onClick={() => setexplain(false)}>Selling</Text>
               </Center>
             </Flex>
           </Center>
