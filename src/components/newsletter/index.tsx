@@ -81,28 +81,26 @@ export default function Newsletter({recaptcha, setRecaptcha}: {recaptcha: string
 	}
     return (
 		<Flex
-			minH={'100vh'}
+			minH={{base:"80vh",md:"100vh"}}
 			align={'center'}
 			justify={'center'}
 			py={12}
-			bg="gray.50">
+			>
 			<Stack
+			w={{base:"80%",md:"container.md"}}
 			boxShadow={'2xl'}
 			rounded={'xl'}
 			p={10}
 			spacing={8}
-			align={'center'}
 			bg="white"
 			>
-				<Icon as={NotificationIcon} w={24} h={24} />
 				<Stack align={'center'} spacing={2}>
 					<Heading
-					textTransform={'uppercase'}
 					fontSize={'3xl'}>
-					Subscribe
+					Fractif newsletter
 					</Heading>
 					<Text fontSize={'lg'} color={'gray.500'}>
-					Subscribe to our newsletter & stay up to date!
+					Fractionnal investing.
 					</Text>
 				</Stack>
 				{
@@ -110,7 +108,7 @@ export default function Newsletter({recaptcha, setRecaptcha}: {recaptcha: string
 					<Spinner size="xl"/>
 					:
 					<form onSubmit={handleSubmit(onSubmit)}>
-						<Stack spacing={4} direction={{ base: 'column' }} w={'full'}>
+						<Stack spacing={4} direction={{ base: 'column' }} w={'full'} >
 							<FormControl id="email">
 								<FormLabel>Email address</FormLabel>
 								<Input type="email" {...register("email", {required: true, pattern: /[^@\s]+@[^@\s]+\.[^@\s]+/im})} />
@@ -152,7 +150,7 @@ export default function Newsletter({recaptcha, setRecaptcha}: {recaptcha: string
 							/>
 							{errors.response ? errors.response.message : null} {errors.listId ? errors.listId.type : null}
 							<Input
-							bg={'green.400'}
+							bg={'#2F80CB'}
 							color={'white'}
 							_hover={{ bg: 'green.500' }}
 							_focus={{ bg: 'green.500' }}
