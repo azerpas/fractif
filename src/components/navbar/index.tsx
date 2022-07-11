@@ -28,18 +28,27 @@ export default function WithSubnavigation() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
-        color={useColorModeValue('gray.600', 'white')}
+        bg={"#16161A"}
+        color={'white'}
         minH={'60px'}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
-        align={'center'}>
+        py={{ base: 2, lg: 12 }}
+        px={{ base: 4, lg: 12 }}
+        justifyContent={"center"} 
+        align="center"
+        >
+
+        <Flex flex={{ base: 1 }} justify={"start"}>
+          <Text
+            fontFamily={'heading'}
+            fontSize={"4xl"}
+            fontWeight={'bold'}
+            >
+            Fractif
+          </Text>
+
+        </Flex>
         <Flex
-          flex={{ base: 1, md: 'auto' }}
-          ml={{ base: -2 }}
+          flex={{  md: 'auto' }}
           display={{ base: 'flex', md: 'none' }}>
           <IconButton
             onClick={onToggle}
@@ -50,13 +59,9 @@ export default function WithSubnavigation() {
             aria-label={'Toggle Navigation'}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-            <DesktopNav />
-          </Flex>
-        </Flex>
 
         <Stack
+          display={{ base: 'none', md: 'flex' }}
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
@@ -65,21 +70,31 @@ export default function WithSubnavigation() {
             as={'a'}
             fontSize={'sm'}
             fontWeight={400}
+            color="white"
             variant={'link'}
             href={'#'}>
-            Sign In
+            Home
+          </Button>
+          <Button
+            as={'a'}
+            fontSize={'sm'}
+            fontWeight={400}
+            color="white"
+            variant={'link'}
+            href={'#'}>
+            Marketplace
           </Button>
           <Button
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
-            bg={'green.400'}
+            bg={'#2F80CB'}
             href={'#'}
             _hover={{
               bg: 'grey.100',
             }}>
-            Sign Up
+            Account
           </Button>
         </Stack>
       </Flex>
@@ -97,7 +112,7 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
-    <Stack direction={'row'} spacing={4}>
+    <Stack direction={'row'} spacing={4} bgColor="#16161A">
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
@@ -175,7 +190,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue('white', 'gray.800')}
+      bg={"#16161A"}
       p={4}
       display={{ md: 'none' }}>
       {NAV_ITEMS.map((navItem) => (
@@ -201,7 +216,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         }}>
         <Text
           fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}>
+          color={"white"}>
           {label}
         </Text>
         {children && (
@@ -243,5 +258,16 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
-
+  {
+    label: 'Home',
+    href: '/',
+  },
+  {
+    label: 'Marketplace',
+    href: '/',
+  },
+  {
+    label: 'Account',
+    href: '/',
+  }
 ];
