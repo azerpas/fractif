@@ -8,14 +8,14 @@ import {
     Center,
     Box,
     Stack
-  } from '@chakra-ui/react';
-  
+} from '@chakra-ui/react';
 
-  export default function CardCar() {
+
+export default function CardCar() {
     return (
         <>
             <Center mt="3rem">
-                <Flex flexDirection="column"> 
+                <Flex flexDirection="column">
                     <Heading fontSize="3xl" mt={3}>Our Curated Cars</Heading>
                     <Center my="3">
                         <Heading color="green.300" fontSize="xl" fontWeight="bold">Invest.  Earn.  Sell.</Heading>
@@ -40,7 +40,7 @@ import {
                         'https://media.discordapp.net/attachments/707421140179746946/858540827339915284/27.JPG'
                     }
                     alt="Mercedes SL 560 Cabrio picture"
-                    />
+                />
 
                 <Stack>
                     <Heading fontWeight="bold" fontSize={{ base: 'xl', sm: '', lg: "2xl" }} my="2" textAlign="center">Mercedes-Benz SL 560 Cabrio</Heading>
@@ -69,7 +69,6 @@ import {
             </Box>
         </>
     );
-  }
-  
-  
-  
+}
+
+

@@ -8,21 +8,21 @@ import { useRef, useLayoutEffect, useState } from 'react';
 
 export default function Pourcentage(data) {
   const boxRef = useRef();
-  const [dimensions, setDimensions] = useState<{width: undefined|number, height: undefined|number}>({width: undefined, height: undefined});
+  const [dimensions, setDimensions] = useState<{ width: undefined | number, height: undefined | number }>({ width: undefined, height: undefined });
   useLayoutEffect(() => {
-    if(boxRef.current){
+    if (boxRef.current) {
       //@ts-ignore
-      setDimensions({width: boxRef.current.offsetWidth, height: boxRef.current.offsetHeight});
+      setDimensions({ width: boxRef.current.offsetWidth, height: boxRef.current.offsetHeight });
     }
   }, []);
   useEffect(() => {
     let movement_timer = null;
-    window.addEventListener('resize', ()=>{
+    window.addEventListener('resize', () => {
       clearInterval(movement_timer);
       movement_timer = setTimeout(() => {
-        if(boxRef.current){
+        if (boxRef.current) {
           //@ts-ignore
-          setDimensions({width: boxRef.current.offsetWidth, height: boxRef.current.offsetHeight});
+          setDimensions({ width: boxRef.current.offsetWidth, height: boxRef.current.offsetHeight });
         }
       }, 100);
     });
@@ -31,7 +31,7 @@ export default function Pourcentage(data) {
     <>
       <Box bg={data.colorbox} alignItems="center" ref={boxRef} minH={dimensions.width + "px"} display="flex" justifyContent="center">
         <Center >
-            <Text fontWeight="bold" color="blackAlpha.500" fontSize={dimensions.width / 3} my="1" textAlign="center">{data.pourcentageCard}</Text>
+          <Text fontWeight="bold" color="blackAlpha.500" fontSize={dimensions.width / 3} my="1" textAlign="center">{data.pourcentageCard}</Text>
         </Center>
       </Box>
     </>

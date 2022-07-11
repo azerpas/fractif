@@ -30,19 +30,19 @@ export default function Explain() {
             <Flex flexDirection="row" pt="50px">
               <Center mr="25px">
                 <Text
-                  textDecoration={ getexplain === true && "underline" } textDecorationColor="#2F80CB" textDecorationThickness="2px"
+                  textDecoration={getexplain === true && "underline"} textDecorationColor="#2F80CB" textDecorationThickness="2px"
                   fontWeight="semibold" onClick={() => setexplain(true)}>Buying
                 </Text>
               </Center>
               <Center ml="25px">
-                <Text color="gray.600" textDecoration={ getexplain === false && "underline"} textDecorationColor="#2F80CB" fontWeight="semibold" onClick={() => setexplain(false)}>Selling</Text>
+                <Text color="gray.600" textDecoration={getexplain === false && "underline"} textDecorationColor="#2F80CB" fontWeight="semibold" onClick={() => setexplain(false)}>Selling</Text>
               </Center>
             </Flex>
           </Center>
           {
             getexplain == true ?
               <>
-                <Stack w={{base:"80%",md:"container.lg"}}  align={'center'} justify={'center'} >
+                <Stack w={{ base: "80%", md: "container.lg" }} align={'center'} justify={'center'} >
                   <SimpleGrid columns={{ base: 1, sm: 1, lg: 3 }} spacing={{ base: 5, lg: 10 }} mt="40px" w="80%" h="" pt={{ base: "0", md: "5%" }}>
                     <Box display={{ base: "block", lg: "flex" }} flexDirection="column" justifyContent="space-between" >
                       <Heading ml="15px" fontWeight="semibold" fontSize={{ base: "large" }}>1. Browse car and listings</Heading>
@@ -81,7 +81,7 @@ export default function Explain() {
 
               :
               <>
-                <Stack w={{base:"2xs",md:"container.lg"}} h={{base:"4xl",md:"sm"}} align={'center'} justify={'center'}>
+                <Stack w={{ base: "2xs", md: "container.lg" }} h={{ base: "4xl", md: "sm" }} align={'center'} justify={'center'}>
                   <Text fontSize={{ base: '0.8rem', sm: '', lg: "1rem" }} fontWeight="medium" >Coming soon ...</Text>
                 </Stack>
               </>
